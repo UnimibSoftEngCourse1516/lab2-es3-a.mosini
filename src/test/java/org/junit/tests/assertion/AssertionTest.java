@@ -33,7 +33,18 @@ public class AssertionTest {
 // @Test (expected=AssertionError.class) public void error() {
 //      assert false;
 //  }
-
+    
+//  NullPointerException - if an argument is null and this comparator does not permit null arguments
+   @Test 
+   public void assertThanGreaterPrimitiveTest(Object o1, Object o2) throws NullPointerException{
+        try{ if(o1 == null || o2 == null)
+            fail("eccezione non lanciata");
+        } catch (NullPointerException e){
+            //eccezione lanciata
+            assertTrue(true);
+        }        
+    }
+   
     @Test(expected = AssertionError.class)
     public void fails() {
         Assert.fail();
