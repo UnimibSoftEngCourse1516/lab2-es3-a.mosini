@@ -38,6 +38,10 @@ public class Assert {
      * okay)
      * @param condition condition to be checked
      */
+     public static <T> void assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator){
+        if(comparator.compare(o1, o2) !=1)
+            fail(null);        
+    }    
     
     public static String assertGreaterThenPrimitive(Object o1, Object o2){
         String sol = "";
