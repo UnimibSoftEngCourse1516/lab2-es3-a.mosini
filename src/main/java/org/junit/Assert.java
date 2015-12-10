@@ -51,24 +51,40 @@ public class Assert {
             int i1 = (Integer) o2;
             int max = Math.max(i, i1);
             sol = Integer.toString(max) + " int"; 
+            if(i < i1)
+                fail();
+            else
+                assert(true);
         }
         else if(o1 instanceof Double && o2 instanceof Double){
             double d = (Double) o1;
             double d1 = (Double) o2;
             double max = Math.max(d, d1);
             sol = Double.toString(max) + " double";
+            if(d < d1)
+                fail();
+            else
+                assert(true);
         }
         else if(o1 instanceof Float && o2 instanceof Float){
             float f = (Float) o1;
             float f1 = (Float) o2;
             float max = Math.max(f, f1);
             sol = Float.toString(max) + " float";
+            if(f < f1)
+                fail();
+            else
+                assert(true);
         }
         else if(o1 instanceof Long && o2 instanceof Long){
             long l = (Long) o1;
             long l1 = (Long) o2;
             long max = Math.max(l, l1);
             sol = Long.toString(max) + " long";
+            if(l < l1)
+                fail();
+            else
+                assert(true);
         }
         else if(o1 instanceof Boolean && o2 instanceof Boolean){
             boolean b = (Boolean) o1;
@@ -86,6 +102,10 @@ public class Assert {
             short shor[] = {s2, s3};
             Arrays.sort(shor);  
             sol = shor[1] + " short";
+            if(s2 < s3)
+                fail();
+            else
+                assert(true);
          }
         else if(o1 instanceof Character && o2 instanceof Character){
             char c = (Character) o1;
@@ -93,6 +113,10 @@ public class Assert {
             char cArr[] = {c, c1};
             Arrays.sort(cArr);  
             sol = cArr[1] + " char";
+            if(c < c1)
+                fail();
+            else
+                assert(true);
         }
         else if(o1 instanceof String && o2 instanceof String){
             String s = (String) o1;
@@ -100,9 +124,9 @@ public class Assert {
             if (s.length() > s1.length())
                 sol = s + " stringa";
             else if (s.length() < s1.length())
-                sol = s1 + " stringa";
+                fail();
             else
-                System.out.println("stringhe di ugual misura");  
+                System.out.println("stringhe di ugual misura"); 
         }
     return sol;              
     }
